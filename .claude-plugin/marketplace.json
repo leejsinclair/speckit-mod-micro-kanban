@@ -1,0 +1,5 @@
+{
+  "name": "speckit-mod-implementation-progress",
+  "owner": { "name": "Lee Sinclair" },
+  "plugins": [{ "name": "micro-kanban", "source": "./" }]
+}

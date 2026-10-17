@@ -1,0 +1,1 @@
+{ "name": "micro-kanban", "version": "0.1.0", "description": "Compact Kanban band showing Spec Kit task progress from tasks.md during /speckit-implement", "types": "./types/index.d.ts" }
