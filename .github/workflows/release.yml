@@ -1,0 +1,37 @@
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install -g @anthropic-ai/claude-code
+      - run: claude plugin validate .
+      - run: claude plugin test .
+      - name: Check tag matches plugin version
+        run: |
+          version=$(node -p "require('./.claude-plugin/plugin.json').version")
+          if [ "v$version" != "$GITHUB_REF_NAME" ]; then
+            echo "Tag $GITHUB_REF_NAME does not match plugin.json version v$version" >&2
+            exit 1
+          fi
+      - name: Build plugin zip
+        run: |
+          name="micro-kanban-${GITHUB_REF_NAME}"
+          zip -r "$name.zip" .claude-plugin/plugin.json hooks types README.md LICENSE docs \
+            -x 'hooks/*.test.ts'
+          unzip -l "$name.zip"
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: micro-kanban-*.zip
+          generate_release_notes: true

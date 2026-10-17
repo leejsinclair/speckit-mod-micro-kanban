@@ -5,11 +5,7 @@ A Claude Code mod that shows a mini kanban board above the prompt while
 a bar of block glyphs sized in proportion to the tasks in each column, with the counts as
 a legend.
 
-```text
-003-no-tooling-manual-verification · tasks.md · 19/40 done  [Hide]
-██████████████████▒░░░░░░░░░░░░░░░░░░░░░
-░ Backlog 20 │ ▒ In progress 1 T020 │ ■ Blocked 0 │ █ Done 19
-```
+![Micro-kanban board: 19 of 40 tasks done, 1 in progress](docs/board.svg)
 
 | Column | Glyph | Colour | Taken from |
 |--------|-------|--------|------------|
@@ -26,18 +22,18 @@ once a prompt runs a `speckit-implement` command, and redraws when `tasks.md` ch
 At the prompt of a terminal session:
 
 ```text
-/plugin install micro-kanban --marketplace leejsinclair/speckit-mod-implementation-progress
+/plugin install micro-kanban --marketplace leejsinclair/speckit-mod-micro-kanban
 ```
 
 From a shell:
 
 ```bash
-claude plugin install micro-kanban --marketplace leejsinclair/speckit-mod-implementation-progress
+claude plugin install micro-kanban --marketplace leejsinclair/speckit-mod-micro-kanban
 ```
 
 Answer `y` to add the marketplace and pick a scope. In the desktop app, where `/plugin`
 does not run: click + next to the prompt box, then Plugins, Add marketplace, and enter
-`leejsinclair/speckit-mod-implementation-progress`.
+`leejsinclair/speckit-mod-micro-kanban`.
 
 ## Use
 

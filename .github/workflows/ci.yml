@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install -g @anthropic-ai/claude-code
+      - name: Lint
+        run: claude plugin validate .
+      - name: Test
+        run: claude plugin test .
+      - name: File hygiene (pre-commit)
+        uses: pre-commit/action@v3.0.1
+        env:
+          SKIP: plugin-validate,plugin-test
+        with:
+          extra_args: --all-files

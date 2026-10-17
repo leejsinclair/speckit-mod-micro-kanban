@@ -1,0 +1,22 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: check-json
+      - id: check-yaml
+  - repo: local
+    hooks:
+      - id: plugin-validate
+        name: claude plugin validate
+        entry: claude plugin validate .
+        language: system
+        pass_filenames: false
+        files: ^(\.claude-plugin/|hooks/|types/)
+      - id: plugin-test
+        name: claude plugin test
+        entry: claude plugin test .
+        language: system
+        pass_filenames: false
+        files: ^(\.claude-plugin/|hooks/|types/)

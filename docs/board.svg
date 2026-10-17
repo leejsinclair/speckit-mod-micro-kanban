@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="104" viewBox="0 0 560 104" role="img" aria-label="Micro-kanban board: 19 of 40 tasks done, 1 in progress, 20 in backlog, 0 blocked">
+  <style>
+    text { font: 13px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fill: #c9d1d9; }
+    .dim { fill: #8b949e; }
+  </style>
+  <rect width="560" height="104" rx="8" fill="#0d1117"/>
+  <text x="20" y="28">003-no-tooling-manual-verification <tspan class="dim">· tasks.md · 19/40 done</tspan>  <tspan fill="#58a6ff">[Hide]</tspan></text>
+  <rect x="20"  y="42" width="228" height="16" fill="#3fb950"/>
+  <rect x="248" y="42" width="12"  height="16" fill="#39c5cf"/>
+  <rect x="260" y="42" width="240" height="16" fill="#484f58"/>
+  <text y="82">
+    <tspan x="20" fill="#8b949e">░ Backlog 20</tspan>
+    <tspan x="124" class="dim">│</tspan><tspan x="140" fill="#39c5cf">▒ In progress 1 T020</tspan>
+    <tspan x="312" class="dim">│</tspan><tspan x="328" fill="#f85149">■ Blocked 0</tspan>
+    <tspan x="424" class="dim">│</tspan><tspan x="440" fill="#3fb950">█ Done 19</tspan>
+  </text>
+</svg>
